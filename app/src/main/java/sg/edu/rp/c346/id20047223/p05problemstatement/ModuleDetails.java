@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class ModuleDetails extends AppCompatActivity {
 
     TextView display;
+    Button btnback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +19,7 @@ public class ModuleDetails extends AppCompatActivity {
         setContentView(R.layout.activity_module_details);
 
         display = findViewById(R.id.textview);
-
+        btnback = findViewById(R.id.backbtn);
 
         Intent intent = getIntent();
         String actValue = intent.getStringExtra("Module");
@@ -46,5 +48,12 @@ public class ModuleDetails extends AppCompatActivity {
 
         }
         display.setText(output);
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 }
